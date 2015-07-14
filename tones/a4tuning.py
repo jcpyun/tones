@@ -90,7 +90,20 @@ def frequency(note,tuning):
 	steps = note_location - a4_location
 	return tuning*a**steps
 
-print frequency('g1',440.0)
+def notesDict():
+	f = [(,frequency)]
+	d = dict()
+	for x in f:
+	d[x[0]] = x[1]
+	return d
+
+def timesDict():
+	octav =7
+	q = [("sq",0.125),("q",0.25),("dq",.375),("ei",0.125 ), ("h",0.5),("dh",.75),("w",1.0),("z",0.0)]
+	d = dict()
+	for x in q:
+		d[x[0]] = x[1]
+	return d
 
 '''
 def neutral(octavs):
