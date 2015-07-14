@@ -84,38 +84,21 @@ def get_location(note):
 
 
 def frequency(note,tuning):
+	if note == 'shit':
+		return 0
+	if note == '----------':
+		return 0
 	f0 = tuning #A4 = tuning hertz
 	a4_location= get_location('a4')
 	note_location= get_location(note)
 	steps = note_location - a4_location
 	return tuning*a**steps
 
-def notesDict():
-	f = [(,frequency)]
-	d = dict()
-	for x in f:
-	d[x[0]] = x[1]
-	return d
 
 def timesDict():
-	octav =7
+	octav =7 
 	q = [("sq",0.125),("q",0.25),("dq",.375),("ei",0.125 ), ("h",0.5),("dh",.75),("w",1.0),("z",0.0)]
 	d = dict()
 	for x in q:
 		d[x[0]] = x[1]
 	return d
-
-'''
-def neutral(octavs):
-	number_of_notes= octavs*7
-	for x in xrange(number_of_notes):
-		neutralnotes.append((twoscale[x%7]+str(x/7),16.35*a**x)) 
-	return neutralnotes
-
-def sharp(octavs):
-	number_of_notes= octavs*7
-	for x in xrange(number_of_notes):
-		sharpnotes.append((twoscale[x%7]+str('s')+str(x/7),17.32*a**x))
-	return sharpnotes
-print sharp(2)
-'''

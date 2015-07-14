@@ -1,17 +1,17 @@
-from aux import *
+from musiclib  import *
 from snd110 import *
 
-ND = notesDict()
+#ND = notesDict()
 TD = timesDict()
 
 def readNote(note):
   split = note.split(",")
-  freq = ND[split[0]]
+  freq = frequency(split[0],440)
   dur = TD[split[1]]
   return (freq,dur)
 
 def readSongFile(file):
-  global ND
+  #global ND
   global TD
   song = open(file)
   notes = []
@@ -28,19 +28,15 @@ def makeMusic(notes):
     newSound += new
   return newSound
 
-def combine(allSongs):
-  song = []
-  return allSongs[0]
-
-def createSong(songFiles, writeFile):
-  allNotes = [readSongFile(songFile) for songFile in songFiles]
-  allSongs = [makeMusic(notes) for notes in allNotes]
-  song = combine(allSongs)
+def createSong(songFile, writeFile):
+  notes = readSongFile(songFile)
+  song = makeMusic(notes)
   if (writeFile[-4:] != ".wav"):
     writeFile += ".wav"
   write_wave(writeFile, song)
 
-createSong(["test.txt"], "test.wav")
+import sys
+createSong(sys.argv[1], sys.argv[2])
 
 
 
