@@ -27,7 +27,10 @@ neutralnotes = []
 sharpnotes = []
 alphabets=string.ascii_lowercase
 scale = alphabets[2:7]+"a"+"b"
-twoscale=scale*2
+scalewithsemi='c*d*ef*g*a*b'
+twoscale=scalewithsemi*2
+
+
 
 
 def get_base_note(note): #this will get base note.
@@ -75,20 +78,19 @@ def get_location(note):
 	octav= get_octav(note)
 	sharpnums= get_sharps(note)
 	flatnums=get_flats(note)
+	for x in xrange(len(scalewithsemi)):
+		if scalewithsemi[x]== base_note:
+			return ((x+int(octav)*12)+total_sharp_flat_neutral(note))
 
-	for x in xrange(len(scale)):
-		if scale[x]== base_note:
-			return (x+int(octav)*12)
-print get_location('g0')
 
 def frequency(note,tuning):
 	f0 = tuning #A4 = tuning hertz
 	a4_location= get_location('a4')
 	note_location= get_location(note)
 	steps = note_location - a4_location
-	return tuning*a**n
+	return tuning*a**steps
 
-print get_location('d0')
+print frequency('g1',440.0)
 
 '''
 def neutral(octavs):
