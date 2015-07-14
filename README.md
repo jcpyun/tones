@@ -1,6 +1,6 @@
 # tones
-
-Contributors:
+<a name="headers"/>
+## Contributors
 
 Patrick Yurky (Carnegie Mellon Universtiy Class of 2015)
 Roger B. Dannenberg (Professor of Carnegie Mellon University)
