@@ -1,6 +1,6 @@
 import string
 #A4 = 440.0 Hz tuning
-tempo = 60
+tempo = 96
 #number_of_notes = 12
 
 sample = [("c0",16.35),("cs0",17.32),("db0",17.32),("d0",18.35),\
@@ -84,7 +84,8 @@ def get_location(note):
 
 
 def frequency(note,tuning):
-	if note == 'shit':
+	print note
+	if note == 'rest':
 		return 0
 	if note == '----------':
 		return 0
@@ -97,7 +98,10 @@ def frequency(note,tuning):
 
 def timesDict():
 	octav =7 
-	q = [("sq",0.125),("q",0.25),("dq",.375),("ei",0.125 ), ("h",0.5),("dh",.75),("w",1.0),("z",0.0)]
+	#q = [("sq",0.125),("q",0.25),("dq",.375),("ei",0.125 ), ("h",0.5),("dh",.75),("w",1.0),("z",0.0)]
+	q = [('w',4),('h',2),('q',1),('e',0.5),('s',0.25),\
+	('dq',1.5),('de',1.75),('ds',3.0/8.0),\
+	('z',0)]
 	d = dict()
 	for x in q:
 		d[x[0]] = x[1]
