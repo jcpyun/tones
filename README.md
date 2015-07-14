@@ -4,12 +4,12 @@
   - Roger B. Dannenberg (Professor of Carnegie Mellon University)
 
 Sample execute:  
-Compile into wav by the following code:  
+Sample code to compile into .wav file:  
 `
 python spaceMusic.py test.txt blank.wav
 `  
 
-then play the wav by the following code:  
+sample code to play the .wav file:  
 `
 aplay blank.wav
 `
