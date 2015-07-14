@@ -23,18 +23,74 @@ n = 1
 #####################
 #fn = f0 * a ** n
 
-f = []
+neutralnotes = []
+sharpnotes = []
 alphabets=string.ascii_lowercase
 scale = alphabets[2:7]+"a"+"b"
 twoscale=scale*2
 
+
+def get_base_note(note): #this will get base note.
+	return note[0]       #ex: 'cs0' will be 'c'
+def get_octav(note):     #this will get octav.
+	return note[-1]      #ex: 'cs0' will be '0'
+def get_others(note):    #this will get sharps or flats
+	if len(note)==2:     #ex: 'cs0' will be 's'
+		return 'n'		 #neutral will return 'n'
+	else:
+		return note[1:-1] 
+def get_sharps(note):
+	others= get_others(note)
+	counter = 0
+	for x in xrange(len(others)):
+		if others[x] == 's':
+			counter +=1
+	return counter
+
+def get_flats(note):
+	others= get_others(note)
+	counter = 0
+	for x in xrange(len(others)):
+		if others[x] == 'b':
+			counter +=1
+	return counter
+def get_neutrals(note):
+	others= get_others(note)
+	counter = 0
+	for x in xrange(len(others)):
+		if others[x] == 'n':
+			counter +=1
+	return counter
+
+def get_location(note):
+	base_note= get_base_note(note)
+	octav= get_octav(note)
+	extra= get_others(note)
+	for x in xrange(len(scale)):
+		if scale[x]== base_note:
+			return (x+int(octav)*12)
+
+
+def frequency(note,tuning):
+	f0 = tuning #A4 = tuning hertz
+	a4_location= get_location('a4')
+	note_location= get_location(note)
+	steps = note_location - a4_location
+	return tuning*a**n
+
+print get_location('d0')
+
+'''
 def neutral(octavs):
 	number_of_notes= octavs*7
 	for x in xrange(number_of_notes):
-		f.append((twoscale[x%7]+str(x/7),16.35*a**x)) 
-	return f
-def sharps(octavs):
-	number_of_notes= octavs*5
+		neutralnotes.append((twoscale[x%7]+str(x/7),16.35*a**x)) 
+	return neutralnotes
+
+def sharp(octavs):
+	number_of_notes= octavs*7
 	for x in xrange(number_of_notes):
-		f.append()
-print neutral(2)
+		sharpnotes.append((twoscale[x%7]+str('s')+str(x/7),17.32*a**x))
+	return sharpnotes
+print sharp(2)
+'''
