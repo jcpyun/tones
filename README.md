@@ -11,13 +11,12 @@ Sample execute:
 
 Compile into wav by the following code:
 
-'''no-highlight
+`
 python spaceMusic.py test.txt blank.wav
-'''
+`
 
 then play the wav by the following code:
-
-'''no-highlight
+`
 aplay blank.wav
-'''
+`
 
