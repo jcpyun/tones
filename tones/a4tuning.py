@@ -39,7 +39,7 @@ def get_others(note):    #this will get sharps or flats
 		return 'n'		 #neutral will return 'n'
 	else:
 		return note[1:-1] 
-def get_sharps(note):
+def get_sharps(note):             #this counts sharps
 	others= get_others(note)
 	counter = 0
 	for x in xrange(len(others)):
@@ -47,29 +47,39 @@ def get_sharps(note):
 			counter +=1
 	return counter
 
-def get_flats(note):
+def get_flats(note):              #this counts flats
 	others= get_others(note)
 	counter = 0
 	for x in xrange(len(others)):
 		if others[x] == 'b':
 			counter +=1
 	return counter
-def get_neutrals(note):
+def get_neutrals(note):			 #this counts neutrals
 	others= get_others(note)
 	counter = 0
 	for x in xrange(len(others)):
 		if others[x] == 'n':
 			counter +=1
 	return counter
+def total_sharp_flat_neutral(note): #this totals flats and sharps
+	sharpnums= get_sharps(note)
+	flatnums= get_flats(note)
+	neutralnums= get_neutrals(note)
+	if neutralnums >0:
+		return 0
+	else:
+		return sharpnums - flatnums
 
 def get_location(note):
 	base_note= get_base_note(note)
 	octav= get_octav(note)
-	extra= get_others(note)
+	sharpnums= get_sharps(note)
+	flatnums=get_flats(note)
+
 	for x in xrange(len(scale)):
 		if scale[x]== base_note:
 			return (x+int(octav)*12)
-
+print get_location('g0')
 
 def frequency(note,tuning):
 	f0 = tuning #A4 = tuning hertz
