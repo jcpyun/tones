@@ -20,7 +20,7 @@ I might try to use virtualenv for scikit.
 I need numpy and scipy.
 
 
-`
+```
 $ sudo apt-get install python-virtualenv python-pip
 $ sudo apt-get build-dep python-numpy python-scipy
 $ # Create virtualenv in home
@@ -29,6 +29,6 @@ $ # Activate the virtualenv
 $ source .myenv/bin/activate
 (myenv)$ pip install -U numpy
 (myenv)$ pip install -U scipy
-`
+```
 now do this after: 
 http://scikit-image.org/download
