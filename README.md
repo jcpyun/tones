@@ -3,6 +3,8 @@
   - John C. Pyun (Carnegie Mellon University Class of 2016)
   - Patrick Yurky (Carnegie Mellon Universtiy Class of 2015)
 
+  - special thanks to Professor Dannenberg.
+
 Sample execute:  
 Sample code to compile into .wav file:  
 `
